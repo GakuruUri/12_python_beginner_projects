@@ -75,56 +75,9 @@ class SmartComputerPlayer(Player):
             sim_score['position'] = possible_move   # This represents the move optimal next move
 
             if player == max_player:    # X is max_player
-                if sim_score['score'] > best['score']
+                if sim_score['score'] > best['score']:
                     best = sim_score
             else:
                 if sim_score['score'] < best['score']:
                     best = sim_score
         return best
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
