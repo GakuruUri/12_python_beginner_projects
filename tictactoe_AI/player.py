@@ -2,7 +2,7 @@ import math
 import random
 
 
-class Player():
+class Player:
     def __init__(self, letter):
         self.letter = letter
 
@@ -38,3 +38,4 @@ class HumanPlayer(Player):
             except ValueError:
                 print('Invalid square. Try again')
         return val
+
