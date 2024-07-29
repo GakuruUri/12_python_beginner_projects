@@ -24,6 +24,7 @@ Then you repeat the same steps with the remaining half of the toys.
 Keep doing this until you find the right toy. It’s like cutting the box in half each time!
 """
 
+
 def naive_search(l, target):
     # Example l = [1, 3, 10, 12]
     for i in range(len(l)):
