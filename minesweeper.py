@@ -2,7 +2,7 @@ import random
 import re
 
 
-# Let's create a board object to represent the minesweeeper game
+# Let's create a board object to represent the minesweeper game
 # this is so that we can just say "create a new board object", or
 # "dig, here" or "render this game for this object"
 
@@ -17,11 +17,11 @@ class Board:
         self.board = self.make_new_board()  # plant these bombs
         self.assign_values_to_board()
 
-        # initialize a set to keep track of shich locations we've uncovered,
+        # initialize a set to keep track of which locations we've uncovered,
         # we'll save (row, col) tuples into this set
         self.dug = set()  # if we dig at 0, 0, then self.dug = {(0, 0})
 
-    def make_new_noard(self):
+    def make_new_board(self):
         # construct a new board based on the dim size and num bombs
         # we should construct the list of lists here (or whatever representation you prefer,
         # but since we have a 2 - d board, list of lists is more natural)
@@ -53,7 +53,10 @@ class Board:
         return board
 
     def assign_values_to_board(self):
-        # now that we have the bombes planted, let's assign a number 0-8 for all the empty spaces, which represents how many neighboring bombs there are. We can precompute these and it'll save us some effort checking what's around the board later on :)
+        # Now that we have the bombes planted, let's assign a number 0-8 for all the empty spaces, which represents
+        # how many neighboring bombs there are.
+        # We can precompute these, and it'll save us some effort checking what's
+        # around the board later on :)
         for r in range(self.dim_size):
             for c in range(self.dim_size):
                 if self.board[r][c] == '*':
@@ -92,7 +95,7 @@ class Board:
         # a few scenarios:
         # hit a bomb -> game over
         # dig at location with neighboring bombs -> finish dig
-        # dig at location with no neighboring bombs -> recursively dig neighbors!
+        #  at location with no neighboring bombs -> recursively dig neighbors!
         self.dug.add((row, col))  # keep track that we dug here
 
         if self.board[row][col] == '*':
