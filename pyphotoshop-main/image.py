@@ -1,17 +1,6 @@
-"""
-Python Image Representation (modified from MIT 6.865)
-
-YouTube Kylie Ying: https://www.youtube.com/ycubed 
-Twitch KylieYing: https://www.twitch.tv/kylieying 
-Twitter @kylieyying: https://twitter.com/kylieyying 
-Instagram @kylieyying: https://www.instagram.com/kylieyying/ 
-Website: https://www.kylieying.com
-Github: https://www.github.com/kying18 
-Programmer Beast Mode Spotify playlist: https://open.spotify.com/playlist/4Akns5EUb3gzmlXIdsJkPs?si=qGc4ubKRRYmPHAJAIrCxVQ 
-"""
-
 import numpy as np
 import png
+
 
 class Image:
     def __init__(self, x_pixels=0, y_pixels=0, num_channels=0, filename=''):
@@ -46,13 +35,13 @@ class Image:
         '''
         im = np.clip(self.array, 0, 1)
         y, x = self.array.shape[0], self.array.shape[1]
-        im = im.reshape(y, x*3)
+        im = im.reshape(y, x * 3)
         writer = png.Writer(x, y)
         with open(self.output_path + output_file_name, 'wb') as f:
-            writer.write(f, 255*(im**(1/gamma)))
+            writer.write(f, 255 * (im ** (1 / gamma)))
 
         self.array.resize(y, x, 3)  # we mutated the method in the first step of the function
-        
+
 
 if __name__ == '__main__':
     im = Image(filename='lake.png')
